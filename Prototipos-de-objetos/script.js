@@ -70,12 +70,6 @@ Person.prototype.farewell = function () {
   alert(this.name.first + " ha dejado el edificio. ");
 };
 
-Person.prototype.fullName = function () {
-  this.name.first + " " + this.name.last;
-};
-
-console.log(person1.fullName());
-
 //Crea un objeto a partir de un objeto prototipo específico (person2)
 const person3 = Object.create(person2);
 // console.log("person3 ", person3.__proto__);
