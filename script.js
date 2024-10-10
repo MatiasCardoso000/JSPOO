@@ -42,7 +42,7 @@ function Person(first, last, age, gender, interests) {
       }
     }
 
-    alert(string);
+    // alert(string);
   };
 
   this.greeting = function () {
@@ -55,5 +55,27 @@ const person1 = new Person("Matias", "Cardoso", 29, "m", [
   "Videogames",
   "Sports",
 ]);
-console.log(person1);
-person1.bio();
+
+//Crea otra instancia del constructor
+const person2 = new person1.constructor("Facundo", "Cardoso", 27, "m", [
+  "Musica",
+  "Ropa",
+]);
+
+//Devuelve el nombre de que constructor es la instancia
+console.log(person2.constructor.name);
+
+//Agrega un nuevo método a la propiedad prototype del constructor
+Person.prototype.farewell = function () {
+  alert(this.name.first + " ha dejado el edificio. ");
+};
+
+Person.prototype.fullName = function () {
+  this.name.first + " " + this.name.last;
+};
+
+console.log(person1.fullName());
+
+//Crea un objeto a partir de un objeto prototipo específico (person2)
+const person3 = Object.create(person2);
+// console.log("person3 ", person3.__proto__);
